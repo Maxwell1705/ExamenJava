@@ -9,6 +9,7 @@ public class CuentaBanco {
     private String banco;
     private float saldo;
 
+    // Constructor
     public CuentaBanco(int numCuenta, String nombre, String banco, float saldo) {
         this.numCuenta = numCuenta;
         this.nombre = nombre;
@@ -16,9 +17,12 @@ public class CuentaBanco {
         this.saldo = saldo;
     }
 
-    public void depositar(float dinero) {
-        float saldoActualizado = 0;
-        this.saldo = this.saldo + dinero;
+    // Métodos de clase
+    public float depositar(float dinero) { // 8000
+        float saldoActualizado = 0; //0
+        saldoActualizado = this.saldo + dinero; //0 + 8000
+        return saldoActualizado; // 8000
+
     }
 
     public boolean retirar(float dinero) {
@@ -30,3 +34,4 @@ public class CuentaBanco {
         return bandera;
     }
 }
+

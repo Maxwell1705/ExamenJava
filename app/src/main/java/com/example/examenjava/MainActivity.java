@@ -1,21 +1,24 @@
 package com.example.examenjava;
 
-import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    // Declaración de variables
 
-    // Declaracion de variables
+    // EditText
     private EditText txtNumeroCuenta;
     private EditText txtNombre;
     private EditText txtNombreBanco;
     private EditText txtSaldo;
+
+    // Botones
     private Button btnEnviar;
     private Button btnSalir;
 
@@ -51,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         btnSalir = (Button) findViewById(R.id.btnSalir);
 
     }
+
     private void enviar() {
         String numCuenta;
         String nombre;
@@ -59,19 +63,33 @@ public class MainActivity extends AppCompatActivity {
 
         banco = getApplicationContext().getResources().getString(R.string.strBanco);
 
+        if (txtNumeroCuenta.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Capture su numero de cuenta", Toast.LENGTH_SHORT).show();
+        } else if (txtNombre.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Por favor, Ingrese su Nombre", Toast.LENGTH_SHORT).show();
+        } else if (txtNombreBanco.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Por favor, Ingrese su Banco", Toast.LENGTH_SHORT).show();
+        } else if (txtSaldo.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Por favor, Ingrese su Saldo", Toast.LENGTH_SHORT).show();
+        } else {
+            // Hacer el paquete para enviar información
 
-        // Hacer el paquete para enviar información
-        Bundle bundle = new Bundle();
-        bundle.putString("nombre", txtNombre.getText().toString());
-        bundle.putString("banco", txtNombreBanco.getText().toString());
-        bundle.putString("saldo", txtSaldo.getText().toString());
+            Bundle bundle = new Bundle();
+            bundle.putString("nombre", txtNombre.getText().toString());
+            bundle.putString("banco", txtNombreBanco.getText().toString());
+            bundle.putString("saldo", txtSaldo.getText().toString());
 
-        // Crear el intent para llamar a otra actividad
-        Intent intent = new Intent(MainActivity.this, CuentaBancoActivity.class);
-        intent.putExtras(bundle);
+            // Crear el intent para llamar a otra actividad
+            Intent intent = new Intent(MainActivity.this, CuentaBancoActivity.class);
+            intent.putExtras(bundle);
 
-        // Iniciar la actividad esperando o no respuesta
-        startActivity(intent);
+            // Iniciar la actividad esperando o no respuesta
+            startActivity(intent);
+
+        }
+
+
+
 
     }
 
@@ -81,3 +99,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
+
+
+

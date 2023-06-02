@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ExamenJava</string>
+    <string name="strBanco">BANCO NACIONAL SOMEX</string>
 </resources>

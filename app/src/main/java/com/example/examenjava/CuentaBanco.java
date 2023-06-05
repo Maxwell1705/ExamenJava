@@ -7,7 +7,7 @@ public class CuentaBanco {
     private int numCuenta;
     private String nombre;
     private String banco;
-    private float saldo;
+    public float saldo;
 
     // Constructor
     public CuentaBanco(int numCuenta, String nombre, String banco, float saldo) {
@@ -34,4 +34,3 @@ public class CuentaBanco {
         return bandera;
     }
 }
-

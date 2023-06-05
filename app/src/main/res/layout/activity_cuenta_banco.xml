@@ -54,7 +54,7 @@
         android:id="@+id/lblMovimientos"
         android:layout_marginTop="80dp"
         android:text="Movimientos"
-        android:textSize="60dp"
+        android:textSize="40dp"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@+id/lblSaldo"
         app:layout_constraintStart_toStartOf="parent"
@@ -91,27 +91,28 @@
     </EditText>
 
     <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
         android:id="@+id/btnDeposito"
-        android:text="Hacer Deposito"
+        android:layout_width="193dp"
+        android:layout_height="51dp"
         android:layout_marginTop="80dp"
+        android:text="Hacer Deposito"
         android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@id/txtCantidad"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtCantidad">
 
     </Button>
 
     <Button
+        android:id="@+id/btnRetiro"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/btnRetiro"
-        android:text="Hacer Retiro"
         android:layout_marginTop="80dp"
+        android:text="Hacer Retiro"
         android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@id/txtCantidad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/btnDeposito"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/txtCantidad">
 
     </Button>
 

@@ -85,10 +85,12 @@ public class CuentaBancoActivity extends AppCompatActivity {
 
     }
 
-    private void retirar() {
-        if (txtCantidad.getText().toString().isEmpty()) {
-            Toast.makeText(this, "Capture la cantidad", Toast.LENGTH_SHORT).show();
-        } else {
+    private void retirar(){
+        if(this.txtCantidad.getText().toString().equals("") || Double.valueOf(this.txtCantidad.getText().toString()) <= 0){
+            Toast.makeText(getApplicationContext(), "Ingrese una cantidad valida para depositar.", Toast.LENGTH_SHORT).show();
+        }else if(Double.valueOf(this.txtCantidad.getText().toString()) > Double.valueOf(lblSaldo.getText().toString())){
+            Toast.makeText(getApplicationContext(), "Saldo insuficiente, usted cuenta con un saldo de: $"+ lblSaldo.getText().toString() +".", Toast.LENGTH_SHORT).show();
+        }else {
             float cantidad = Float.parseFloat(txtCantidad.getText().toString());
             float saldoActualizado = Float.parseFloat(lblSaldo.getText().toString());
             float tot;
@@ -97,7 +99,9 @@ public class CuentaBancoActivity extends AppCompatActivity {
             lblSaldo.setText("" + tot);
         }
 
+
     }
+
 
     private void regresar() {
         AlertDialog.Builder confirmar = new AlertDialog.Builder(this);
